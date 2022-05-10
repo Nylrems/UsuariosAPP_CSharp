@@ -9,6 +9,7 @@ namespace UsuariosApp_CSharp.Logic
     class lusuarios
     {
         private int idusuario;
+
         private string usuario;
         private string pass;
         private byte[] icono;
@@ -16,7 +17,7 @@ namespace UsuariosApp_CSharp.Logic
 
         public int Idusuario
         {
-            get { return Idusuario; }   
+            get { return Idusuario; }
             set { Idusuario = value; }
         }
         public string Usuario
@@ -37,7 +38,18 @@ namespace UsuariosApp_CSharp.Logic
         public string Estado
         {
             get { return Estado; }
-            set { Estado = value; } 
+            set { Estado = value; }
+        }
+
+        public lusuarios() { }
+
+        public lusuarios(int idusuario, string usuario, string pass, byte[] icono, string estado)
+        {
+            Idusuario = idusuario;
+            Usuario = usuario;
+            Pass = pass;
+            Icono = icono;
+            Estado = estado;
         }
     }
 }
