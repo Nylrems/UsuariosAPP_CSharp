@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CONEXION.cs" />
     <Compile Include="Data\dusuarios.cs" />
     <Compile Include="Logic\lusuarios.cs" />
     <Compile Include="Program.cs" />
