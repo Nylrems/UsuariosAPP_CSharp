@@ -30,7 +30,7 @@ namespace UsuariosApp_CSharp.Logic
             get { return Pass; }
             set { Pass = value; }
         }
-        private byte[] Icono
+        public byte[] Icono
         {
             get { return Icono; }
             set { Icono = value; }
