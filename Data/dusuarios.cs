@@ -20,13 +20,13 @@ namespace UsuariosApp_CSharp.Data
             try
             {
                 CONEXION.abrir();
-                cmd = new SqlCommand("Insertar_usuario", CONEXION.conexion);
+                cmd = new SqlCommand("Insertar_usuarios", CONEXION.conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue ("@Usuario", dt.Usuario);
+                cmd.Parameters.AddWithValue("@Usuario", dt.Usuario);
                 cmd.Parameters.AddWithValue("@Pass", dt.Pass);
                 cmd.Parameters.AddWithValue("@Icono", dt.Icono);
                 cmd.Parameters.AddWithValue("@Estado", dt.Estado);
-                if(cmd.ExecuteNonQuery() != 0)
+                if (cmd.ExecuteNonQuery() != 0)
                 {
                     return true;
                 }
@@ -35,10 +35,10 @@ namespace UsuariosApp_CSharp.Data
                     return false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return false; 
+                return false;
             }
             finally
             {
