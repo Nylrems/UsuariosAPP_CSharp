@@ -119,5 +119,30 @@ namespace UsuariosApp_CSharp.Views
             panelUsuario.Visible=false;
             panelUsuario.Dock = DockStyle.None;
         }
+
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+            editar_usuario();
+            mostrar_usuarios();
+        }
+
+        public void editar_usuario()
+        {
+           lusuarios dt = new lusuarios();
+            dusuarios funcion = new dusuarios();
+            dt.Idusuario = idusuario;
+            dt.Usuario = txtUsuario.Text;
+            dt.Pass = txtContrasena.Text;
+            MemoryStream ms = new MemoryStream();
+            pictureBox2.Image.Save(ms, pictureBox2.Image.RawFormat);
+            dt.Icono = ms.GetBuffer();
+            dt.Estado = "Activo";
+            if (funcion.editar(dt))
+            {
+                MessageBox.Show("Usuario Modificado", "Modificación correcta");
+                panelUsuario.Visible = false;
+                panelUsuario.Dock = DockStyle.None;
+            }
+        }
     }
 }

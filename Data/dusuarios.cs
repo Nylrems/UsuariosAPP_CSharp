@@ -78,6 +78,7 @@ namespace UsuariosApp_CSharp.Data
 
         public bool editar(lusuarios dt)
         {
+            CONEXION.abrir();
             cmd = new SqlCommand("editar_usuarios", CONEXION.conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Id_usuario", dt.Idusuario);
