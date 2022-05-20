@@ -15,6 +15,8 @@ namespace UsuariosApp_CSharp.Views
             InitializeComponent();
         }
 
+        int idusuario;
+
         private void button1_Click(object sender, EventArgs e)
         {
             panelUsuario.Visible = true;
@@ -93,6 +95,29 @@ namespace UsuariosApp_CSharp.Views
         private void panelUsuario_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void datalistado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idusuario = Convert.ToInt32(datalistado.SelectedCells[2].Value.ToString());
+            txtUsuario.Text = datalistado.SelectedCells[3].Value.ToString();
+            txtContrasena.Text = datalistado.SelectedCells[4].Value.ToString();
+            pictureBox2.BackgroundImage = null;
+            byte[] b = (Byte[])datalistado.SelectedCells[5].Value;
+            MemoryStream ms = new MemoryStream(b);
+            pictureBox2.Image = Image.FromStream(ms);
+
+            panelUsuario.Visible = true;
+            panelUsuario.Dock = DockStyle.Fill;
+            btnGuardar.Visible = false;
+            btnGuardarCambios.Visible = true;
+
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            panelUsuario.Visible=false;
+            panelUsuario.Dock = DockStyle.None;
         }
     }
 }
