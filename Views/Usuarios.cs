@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using UsuariosApp_CSharp.Logic;
 using UsuariosApp_CSharp.Data;
 using System.IO;
+using System.Data;
 
 namespace UsuariosApp_CSharp.Views
 {
@@ -17,6 +18,7 @@ namespace UsuariosApp_CSharp.Views
         private void button1_Click(object sender, EventArgs e)
         {
             panelUsuario.Visible = true;
+            panelUsuario.Dock = DockStyle.Fill; 
             btnGuardar.Visible = true;
             btnGuardarCambios.Visible = false;
             txtUsuario.Clear();
@@ -30,6 +32,7 @@ namespace UsuariosApp_CSharp.Views
                 if(txtContrasena.Text != "")
                 {
                     insertar_usuario();
+                    mostrar_usuarios();
                 }
                 else
                 {
@@ -68,7 +71,28 @@ namespace UsuariosApp_CSharp.Views
             if (funcion.insertar(dt))
             {
                 MessageBox.Show("Usuario Registrado", "Registro correcto");
+                panelUsuario.Visible = false;
+                panelUsuario.Dock = DockStyle.None;
             }
+        }
+
+        private void mostrar_usuarios()
+        {
+            DataTable dt;
+            dusuarios funcion = new dusuarios();
+            dt = funcion.mostrarUsuarios();
+            datalistado.DataSource = dt;
+        }
+
+        private void Usuarios_Load(object sender, EventArgs e)
+        {
+            
+            mostrar_usuarios();
+        }
+
+        private void panelUsuario_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

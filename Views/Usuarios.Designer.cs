@@ -48,9 +48,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dlg = new System.Windows.Forms.OpenFileDialog();
+            this.datalistado = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,8 +57,7 @@
             this.panel6.SuspendLayout();
             this.panelUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -145,7 +143,6 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 121);
             this.panel4.Name = "panel4";
@@ -155,10 +152,11 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.panelUsuario);
+            this.panel6.Controls.Add(this.datalistado);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(348, 0);
+            this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(784, 560);
+            this.panel6.Size = new System.Drawing.Size(1132, 560);
             this.panel6.TabIndex = 1;
             // 
             // panelUsuario
@@ -173,11 +171,12 @@
             this.panelUsuario.Controls.Add(this.label3);
             this.panelUsuario.Controls.Add(this.label2);
             this.panelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelUsuario.Location = new System.Drawing.Point(104, 101);
+            this.panelUsuario.Location = new System.Drawing.Point(270, 101);
             this.panelUsuario.Name = "panelUsuario";
             this.panelUsuario.Size = new System.Drawing.Size(592, 359);
             this.panelUsuario.TabIndex = 0;
             this.panelUsuario.Visible = false;
+            this.panelUsuario.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUsuario_Paint);
             // 
             // btnVolver
             // 
@@ -259,27 +258,20 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Usuario:";
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.dataGridView1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(348, 560);
-            this.panel5.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(348, 560);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // dlg
             // 
             this.dlg.FileName = "openFileDialog1";
+            // 
+            // datalistado
+            // 
+            this.datalistado.AllowUserToAddRows = false;
+            this.datalistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datalistado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datalistado.Location = new System.Drawing.Point(0, 0);
+            this.datalistado.Name = "datalistado";
+            this.datalistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datalistado.Size = new System.Drawing.Size(1132, 560);
+            this.datalistado.TabIndex = 0;
             // 
             // Usuarios
             // 
@@ -294,6 +286,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Usuarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -303,8 +296,7 @@
             this.panelUsuario.ResumeLayout(false);
             this.panelUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datalistado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,8 +322,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.OpenFileDialog dlg;
+        private System.Windows.Forms.DataGridView datalistado;
     }
 }
