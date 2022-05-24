@@ -136,7 +136,13 @@ namespace UsuariosApp_CSharp.Views
             idusuario = Convert.ToInt32(datalistado.SelectedCells[2].Value.ToString());
             if (e.ColumnIndex == this.datalistado.Columns["Eliminar"].Index)
             {
-                
+                DialogResult result;
+                result = MessageBox.Show("¿Estás seguro que deseas eliminar el usuario?", "Eliminando Usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    eliminar_usuarios();
+                    mostrar_usuarios();
+                }
             }
             if (e.ColumnIndex == this.datalistado.Columns["Editar"].Index)
             {
