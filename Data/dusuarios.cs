@@ -20,7 +20,7 @@ namespace UsuariosApp_CSharp.Data
             try
             {
                 CONEXION.abrir();
-                cmd = new SqlCommand("Insertar_usuarios", CONEXION.conexion);
+                cmd = new SqlCommand("Insertar_usuario", CONEXION.conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Usuario", dt.Usuario);
                 cmd.Parameters.AddWithValue("@Pass", dt.Pass);
@@ -93,6 +93,30 @@ namespace UsuariosApp_CSharp.Data
             else
             {
                 return false; 
+            }
+        }
+
+        public bool eliminar_usuarios(lusuarios dt)
+        {
+            try
+            {
+                CONEXION.abrir();
+                cmd = new SqlCommand("eliminar_usuarios", CONEXION.conexion);
+                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_usuario", dt.Idusuario);
+                if(cmd.ExecuteNonQuery() != 0){
+                    return true;
+                }else{
+                    return false;
+                }
+
+            }
+            catch(Exception ex){
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally{
+                CONEXION.cerrar();
             }
         }
     }
