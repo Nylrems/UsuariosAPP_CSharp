@@ -76,6 +76,38 @@ namespace UsuariosApp_CSharp.Data
             }
         }
 
+        public DataTable buscar_usuarios(string parametros)
+        {
+            try
+            {
+                CONEXION.abrir();
+                cmd = new SqlCommand("buscar_usuarios", CONEXION.conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@buscador",parametros);
+
+                if (cmd.ExecuteNonQuery() != 0)
+                {
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    return dt;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                CONEXION.cerrar();
+            }
+        }
+
         public bool editar(lusuarios dt)
         {
             CONEXION.abrir();

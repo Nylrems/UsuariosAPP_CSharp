@@ -175,6 +175,17 @@ namespace UsuariosApp_CSharp.Views
             mostrar_usuarios();
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            buscar_usuarios();
+        }
 
+        private void buscar_usuarios()
+        {
+            DataTable dt;
+            dusuarios funcion = new dusuarios();
+            dt = funcion.buscar_usuarios(textBox1.Text);
+            datalistado.DataSource = dt;
+        }
     }
 }
